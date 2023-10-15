@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glufs.Reviews.Api", "src\Glufs.Reviews.Api\Glufs.Reviews.Api.csproj", "{C2970C1F-B21F-472E-9E49-8B3FEA4C8BB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glufs.Reviews.Jobs", "src\Glufs.Reviews.Jobs\Glufs.Reviews.Jobs.csproj", "{3994F8A5-3B7A-497A-8C6A-03ED76E05122}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1202B16B-A8BA-4780-BBB3-D20DE894F964}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glufs.Reviews.Infrastructure", "src\Glufs.Reviews.Infrastructure\Glufs.Reviews.Infrastructure.csproj", "{A950E351-99C3-4B39-A719-D64B5EAFF1C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glufs.Reviews.Application", "src\Glufs.Reviews.Application\Glufs.Reviews.Application.csproj", "{BC1445FA-2CD4-45D3-8769-0CE94AFE4B51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glufs.Reviews.Domain", "src\Glufs.Reviews.Domain\Glufs.Reviews.Domain.csproj", "{86AEB766-FDA4-4A6B-B821-1045C878C2FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2970C1F-B21F-472E-9E49-8B3FEA4C8BB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2970C1F-B21F-472E-9E49-8B3FEA4C8BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2970C1F-B21F-472E-9E49-8B3FEA4C8BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2970C1F-B21F-472E-9E49-8B3FEA4C8BB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3994F8A5-3B7A-497A-8C6A-03ED76E05122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3994F8A5-3B7A-497A-8C6A-03ED76E05122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3994F8A5-3B7A-497A-8C6A-03ED76E05122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3994F8A5-3B7A-497A-8C6A-03ED76E05122}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A950E351-99C3-4B39-A719-D64B5EAFF1C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A950E351-99C3-4B39-A719-D64B5EAFF1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A950E351-99C3-4B39-A719-D64B5EAFF1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A950E351-99C3-4B39-A719-D64B5EAFF1C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC1445FA-2CD4-45D3-8769-0CE94AFE4B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC1445FA-2CD4-45D3-8769-0CE94AFE4B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC1445FA-2CD4-45D3-8769-0CE94AFE4B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC1445FA-2CD4-45D3-8769-0CE94AFE4B51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86AEB766-FDA4-4A6B-B821-1045C878C2FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86AEB766-FDA4-4A6B-B821-1045C878C2FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86AEB766-FDA4-4A6B-B821-1045C878C2FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86AEB766-FDA4-4A6B-B821-1045C878C2FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A10493B-4A9C-4AF8-B86C-0F04CF96D46E}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C2970C1F-B21F-472E-9E49-8B3FEA4C8BB6} = {1202B16B-A8BA-4780-BBB3-D20DE894F964}
+		{3994F8A5-3B7A-497A-8C6A-03ED76E05122} = {1202B16B-A8BA-4780-BBB3-D20DE894F964}
+		{A950E351-99C3-4B39-A719-D64B5EAFF1C8} = {1202B16B-A8BA-4780-BBB3-D20DE894F964}
+		{BC1445FA-2CD4-45D3-8769-0CE94AFE4B51} = {1202B16B-A8BA-4780-BBB3-D20DE894F964}
+		{86AEB766-FDA4-4A6B-B821-1045C878C2FF} = {1202B16B-A8BA-4780-BBB3-D20DE894F964}
+	EndGlobalSection
+EndGlobal
