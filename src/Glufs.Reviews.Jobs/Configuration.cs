@@ -6,5 +6,6 @@ public static class Configuration
 {
     public static void ConfigureJobs(this IServiceCollection services)
     {
+        
     }
 }

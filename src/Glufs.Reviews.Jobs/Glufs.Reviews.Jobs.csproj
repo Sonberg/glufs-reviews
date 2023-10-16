@@ -5,17 +5,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="SendReviewEmail\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SendReviewEmail\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="EasyCronJob.Core" Version="2.1.0" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Glufs.Reviews.Application\Glufs.Reviews.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.16.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
   </ItemGroup>
 </Project>
