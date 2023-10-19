@@ -1,4 +1,6 @@
 ﻿using Glufs.Reviews.Domain.Events;
+using Glufs.Reviews.Domain.Klaviyo;
+using Glufs.Reviews.Domain.Klaviyo.Models;
 using Glufs.Reviews.Domain.Orders;
 using Glufs.Reviews.Domain.Products;
 using Glufs.Reviews.Domain.ReviewRequests;
@@ -18,16 +20,20 @@ public class SendReviewEmailJob : IJob<SendReviewEmailEvent>
 
     private readonly IProductsRepository _productsRepository;
 
+    private readonly IKlaviyo _klaviyo;
+
     public SendReviewEmailJob(
         IOrdersRepository ordersRepository,
         IReviewRequestsRepository reviewRequestsRepository,
         IReviewsRepository reviewsRepository,
-        IProductsRepository productsRepository)
+        IProductsRepository productsRepository,
+        IKlaviyo klaviyo)
     {
         _ordersRepository = ordersRepository;
         _reviewRequestsRepository = reviewRequestsRepository;
         _reviewsRepository = reviewsRepository;
         _productsRepository = productsRepository;
+        _klaviyo = klaviyo;
     }
 
     public async Task RunAsync(SendReviewEmailEvent data, CancellationToken cancellationToken = default)
@@ -52,9 +58,14 @@ public class SendReviewEmailJob : IJob<SendReviewEmailEvent>
             OrderId = order.AdminGraphqlApiId
         }, cancellationToken);
 
-        // Send
+        await _klaviyo.AskForReview(new AskForReviewRequest
+        {
+            ReviewRequestId = request!.Id!,
+            OrderId = order.AdminGraphqlApiId,
+            Email = order.Customer.Email,
+            Phone = order.Customer.Phone
 
-        throw new NotImplementedException();
+        }, cancellationToken);
     }
 }
 

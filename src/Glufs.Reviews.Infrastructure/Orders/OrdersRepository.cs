@@ -7,6 +7,8 @@ namespace Glufs.Reviews.Infrastructure.Orders;
 
 public class OrdersRepository : IOrdersRepository
 {
+    private record OrderResponse(Order Order);
+
     private readonly HttpClient _httpClient;
 
 	public OrdersRepository(HttpClient httpClient)
@@ -19,14 +21,14 @@ public class OrdersRepository : IOrdersRepository
         var url = $"/admin/api/2023-07/orders/{id}.json";
         var response = await _httpClient.GetAsync(url, cancellationToken);
         var json = await response.Content.ReadAsStringAsync(cancellationToken);
-        var data = JsonSerializer.Deserialize<List<Order>>(json, new JsonSerializerOptions
+        var data = JsonSerializer.Deserialize<OrderResponse>(json, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = SnakeCaseNamingPolicy.Instance
 
         });
 
-        throw new NotImplementedException();
+        return data!.Order;
     }
 }
 

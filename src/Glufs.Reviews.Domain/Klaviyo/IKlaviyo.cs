@@ -1,7 +1,9 @@
-﻿namespace Glufs.Reviews.Domain.Klaviyo;
+﻿using Glufs.Reviews.Domain.Klaviyo.Models;
+
+namespace Glufs.Reviews.Domain.Klaviyo;
 
 public interface IKlaviyo
 {
-    Task AskForReview(CancellationToken cancellationToken = default);
+    Task AskForReview(AskForReviewRequest request, CancellationToken cancellationToken = default);
 }
 

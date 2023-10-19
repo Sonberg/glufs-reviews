@@ -21,6 +21,7 @@
     <None Remove="Products\" />
     <None Remove="Products\Models\" />
     <None Remove="Klaviyo\" />
+    <None Remove="Klaviyo\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Orders\" />
@@ -33,5 +34,6 @@
     <Folder Include="Products\" />
     <Folder Include="Products\Models\" />
     <Folder Include="Klaviyo\" />
+    <Folder Include="Klaviyo\Models\" />
   </ItemGroup>
 </Project>
