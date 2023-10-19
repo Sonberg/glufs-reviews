@@ -9,7 +9,6 @@ using Glufs.Reviews.Domain.Klaviyo.Models;
 using Glufs.Reviews.Infrastructure;
 using Glufs.Reviews.Infrastructure.Options;
 using Glufs.Reviews.Jobs;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);

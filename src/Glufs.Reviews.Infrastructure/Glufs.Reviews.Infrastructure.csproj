@@ -23,11 +23,15 @@
     <None Remove="Klaviyo\" />
     <None Remove="Products\" />
     <None Remove="Options\" />
+    <None Remove="Reviews\" />
+    <None Remove="ReviewRequests\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Policies\" />
     <Folder Include="Klaviyo\" />
     <Folder Include="Products\" />
     <Folder Include="Options\" />
+    <Folder Include="Reviews\" />
+    <Folder Include="ReviewRequests\" />
   </ItemGroup>
 </Project>

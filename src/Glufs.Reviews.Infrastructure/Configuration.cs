@@ -2,10 +2,14 @@
 using Glufs.Reviews.Domain.Klaviyo;
 using Glufs.Reviews.Domain.Orders;
 using Glufs.Reviews.Domain.Products;
+using Glufs.Reviews.Domain.ReviewRequests;
+using Glufs.Reviews.Domain.Reviews;
 using Glufs.Reviews.Infrastructure.Klaviyo;
 using Glufs.Reviews.Infrastructure.Options;
 using Glufs.Reviews.Infrastructure.Orders;
 using Glufs.Reviews.Infrastructure.Products;
+using Glufs.Reviews.Infrastructure.ReviewRequests;
+using Glufs.Reviews.Infrastructure.Reviews;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -47,6 +51,9 @@ public static class Configuration
             client.BaseAddress = opt.Domain!;
             client.DefaultRequestHeaders.Add("X-Shopify-Access-Token", opt.AccessToken);
         });
+
+        services.AddScoped<IReviewRequestsRepository, ReviewRequestsRepository>();
+        services.AddScoped<IReviewsRepository, ReviewsRepository>();
     }
 
     private static void AddHttpClient<TClient, TImplementation, TOptions>(this IServiceCollection services,
