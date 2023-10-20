@@ -13,12 +13,12 @@ public class ReviewsRepository : IReviewsRepository
         _factory = factory;
     }
 
-    public async Task<ICollection<Review>> GetByCustomer(string customerId, CancellationToken cancellationToken = default)
+    public async Task<ICollection<Review>> Get(ICollection<string> ids, CancellationToken cancellationToken = default)
     {
         var client = _factory.GetClient();
         var response = await client
             .From<Review>()
-            .Filter("customer_id", Postgrest.Constants.Operator.Equals, customerId)
+            .Filter(x => x.Id!, Postgrest.Constants.Operator.In, ids.Cast<object>().ToList())
             .Get(cancellationToken);
 
         return response.Models;

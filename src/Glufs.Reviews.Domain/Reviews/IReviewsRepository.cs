@@ -4,6 +4,6 @@ namespace Glufs.Reviews.Domain.Reviews;
 
 public interface IReviewsRepository
 {
-    Task<ICollection<Review>> GetByCustomer(string customerId, CancellationToken cancellationToken = default);
+    Task<ICollection<Review>> Get(ICollection<string> ids, CancellationToken cancellationToken = default);
 }
 

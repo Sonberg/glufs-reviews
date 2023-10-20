@@ -26,7 +26,7 @@ public class ReviewRequestsRepository : IReviewRequestsRepository
         var client = _factory.GetClient();
         var response = await client
             .From<ReviewRequest>()
-            .Filter("customer_id", Postgrest.Constants.Operator.Equals, customerId)
+            .Filter(x => x.CustomerId!, Postgrest.Constants.Operator.Equals, customerId)
             .Get(cancellationToken);
 
         return response.Models;

@@ -17,5 +17,8 @@ public class ReviewRequest : BaseModel
 
     [Column("customer_name")]
     public string? CustomerName { get; set; }
+
+    [Column("customer_id")]
+    public string? CustomerId { get; set; }
 }
 

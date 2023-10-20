@@ -44,16 +44,19 @@ public class SendReviewEmailJob : IJob<SendReviewEmailEvent>
         var products = await Task.WhenAll(productsTask);
         var handles = products.Select(x => x.Handle).Order().ToArray();
 
-        var reviews = await _reviewsRepository.GetByCustomer(order.Customer.AdminGraphqlApiId, cancellationToken);
+        var reviewRequests = await _reviewRequestsRepository.GetByCustomerId(order.Customer.AdminGraphqlApiId, cancellationToken);
+        var reviewIds = reviewRequests.Select(x => x.ReviewId).OfType<string>().ToList();
+        var reviews = await _reviewsRepository.Get(reviewIds, cancellationToken);
         var reviewedProducts = reviews.SelectMany(x => x.Products).Order().ToArray();
 
-        if (handles.SequenceEqual(reviewedProducts))
+        if (handles.Except(reviewedProducts).Count() == 0)
         {
             return;
         }
 
         var request = await _reviewRequestsRepository.Create(new ReviewRequest
         {
+            CustomerId = order.Customer.AdminGraphqlApiId,
             CustomerName = $"{order.Customer.FirstName} {order.Customer.LastName}",
             OrderId = order.AdminGraphqlApiId
         }, cancellationToken);

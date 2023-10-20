@@ -80,8 +80,6 @@ public static class Configuration
             .AddHttpClient<TClient, TImplementation>((sp, c) =>
             {
                 configure(c, sp.GetRequiredService<IOptions<TOptions>>().Value);
-
-                c.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
             });
     }
 }
