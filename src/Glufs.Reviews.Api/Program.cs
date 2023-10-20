@@ -1,14 +1,11 @@
 ﻿using Azure.Identity;
-using Azure.Messaging.ServiceBus;
 using Glufs.Reviews.Api.Extensions;
 using Glufs.Reviews.Application;
 using Glufs.Reviews.Domain;
 using Glufs.Reviews.Domain.Klaviyo;
 using Glufs.Reviews.Domain.Klaviyo.Models;
 using Glufs.Reviews.Infrastructure;
-using Glufs.Reviews.Infrastructure.Options;
 using Glufs.Reviews.Jobs;
-using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,26 +24,13 @@ if (builder.Configuration.TryGetValue<string>("APPLICATIONINSIGHTS_CONNECTION_ST
     });
 }
 
-builder.Services.AddSingleton(sp =>
-{
-    if (builder.Environment.IsDevelopment())
-    {
-        return new ServiceBusClient("glufs-dev-sbus.servicebus.windows.net", new DefaultAzureCredential());
-    }
-    else
-    {
-        return new ServiceBusClient(sp.GetRequiredService<IOptions<ServiceBusOptions>>().Value.ConnectionString!);
-    }
-
-});
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.ConfigureInfrastructure(builder.Configuration);
 builder.Services.ConfigureDomain();
-builder.Services.ConfigureJobs();
+builder.Services.ConfigureJobs(builder.Configuration, builder.Environment.IsDevelopment());
 builder.Services.ConfigureApplication();
 
 var app = builder.Build();
