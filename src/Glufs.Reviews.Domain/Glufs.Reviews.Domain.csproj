@@ -10,30 +10,4 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="supabase-csharp" Version="0.13.6" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="Orders\" />
-    <None Remove="Orders\Models\" />
-    <None Remove="ReviewRequests\" />
-    <None Remove="ReviewRequests\Models\" />
-    <None Remove="Events\" />
-    <None Remove="Reviews\" />
-    <None Remove="Reviews\Models\" />
-    <None Remove="Products\" />
-    <None Remove="Products\Models\" />
-    <None Remove="Klaviyo\" />
-    <None Remove="Klaviyo\Models\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Orders\" />
-    <Folder Include="Orders\Models\" />
-    <Folder Include="ReviewRequests\" />
-    <Folder Include="ReviewRequests\Models\" />
-    <Folder Include="Events\" />
-    <Folder Include="Reviews\" />
-    <Folder Include="Reviews\Models\" />
-    <Folder Include="Products\" />
-    <Folder Include="Products\Models\" />
-    <Folder Include="Klaviyo\" />
-    <Folder Include="Klaviyo\Models\" />
-  </ItemGroup>
 </Project>

@@ -18,22 +18,4 @@
     <PackageReference Include="Microsoft.Extensions.Options.DataAnnotations" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="Policies\" />
-    <None Remove="Klaviyo\" />
-    <None Remove="Products\" />
-    <None Remove="Options\" />
-    <None Remove="Reviews\" />
-    <None Remove="ReviewRequests\" />
-    <None Remove="Factories\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Policies\" />
-    <Folder Include="Klaviyo\" />
-    <Folder Include="Products\" />
-    <Folder Include="Options\" />
-    <Folder Include="Reviews\" />
-    <Folder Include="ReviewRequests\" />
-    <Folder Include="Factories\" />
-  </ItemGroup>
 </Project>
