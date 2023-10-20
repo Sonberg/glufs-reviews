@@ -46,6 +46,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.MapGet("/",  () =>Results.NoContent());
 app.MapGet("/test-klaviyo", async (IKlaviyo klaviyo) =>
 {
     await klaviyo.AskForReview(new AskForReviewRequest
