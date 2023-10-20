@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  glufs.reviews.api:
+    image: ${DOCKER_REGISTRY-}glufsreviews
+    build:
+      context: .
+      dockerfile: src/Glufs.Reviews.Api/Dockerfile
