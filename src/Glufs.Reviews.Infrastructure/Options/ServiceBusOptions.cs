@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Glufs.Reviews.Api.Options;
+namespace Glufs.Reviews.Infrastructure.Options;
 
 public class ServiceBusOptions
 {

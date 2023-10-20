@@ -25,6 +25,7 @@
     <None Remove="Options\" />
     <None Remove="Reviews\" />
     <None Remove="ReviewRequests\" />
+    <None Remove="Factories\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Policies\" />
@@ -33,5 +34,6 @@
     <Folder Include="Options\" />
     <Folder Include="Reviews\" />
     <Folder Include="ReviewRequests\" />
+    <Folder Include="Factories\" />
   </ItemGroup>
 </Project>

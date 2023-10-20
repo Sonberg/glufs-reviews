@@ -19,12 +19,10 @@
   <ItemGroup>
     <None Remove="Controllers\" />
     <None Remove="Extensions\" />
-    <None Remove="Options\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Extensions\" />
-    <Folder Include="Options\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Glufs.Reviews.Application\Glufs.Reviews.Application.csproj">

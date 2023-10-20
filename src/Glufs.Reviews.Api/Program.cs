@@ -1,7 +1,6 @@
 ﻿using Azure.Identity;
 using Azure.Messaging.ServiceBus;
 using Glufs.Reviews.Api.Extensions;
-using Glufs.Reviews.Api.Options;
 using Glufs.Reviews.Application;
 using Glufs.Reviews.Domain;
 using Glufs.Reviews.Domain.Klaviyo;
@@ -27,12 +26,6 @@ if (builder.Configuration.TryGetValue<string>("APPLICATIONINSIGHTS_CONNECTION_ST
         opt.ConnectionString = connectionString;
     });
 }
-
-builder.Services
-    .AddOptions<ShopifyAdminOptions>()
-    .Bind(builder.Configuration.GetSection(ShopifyAdminOptions.SectionName))
-    .ValidateDataAnnotations();
-
 
 builder.Services.AddSingleton(sp =>
 {

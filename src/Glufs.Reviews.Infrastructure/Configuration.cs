@@ -4,6 +4,7 @@ using Glufs.Reviews.Domain.Orders;
 using Glufs.Reviews.Domain.Products;
 using Glufs.Reviews.Domain.ReviewRequests;
 using Glufs.Reviews.Domain.Reviews;
+using Glufs.Reviews.Infrastructure.Factories;
 using Glufs.Reviews.Infrastructure.Klaviyo;
 using Glufs.Reviews.Infrastructure.Options;
 using Glufs.Reviews.Infrastructure.Orders;
@@ -21,6 +22,17 @@ public static class Configuration
     public static void ConfigureInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services
+            .AddOptions<ShopifyAdminOptions>()
+            .Bind(configuration.GetSection(ShopifyAdminOptions.SectionName))
+            .ValidateDataAnnotations();
+
+        services
+            .AddOptions<SupabaseConnectionOptions>()
+            .Bind(configuration.GetSection(SupabaseConnectionOptions.SectionName))
+            .ValidateDataAnnotations();
+
+
+        services
             .AddOptions<KlaviyoOptions>()
             .Bind(configuration.GetSection(KlaviyoOptions.SectionName))
             .ValidateDataAnnotations();
@@ -29,6 +41,8 @@ public static class Configuration
            .AddOptions<ShopifyAdminOptions>()
            .Bind(configuration.GetSection(ShopifyAdminOptions.SectionName))
            .ValidateDataAnnotations();
+
+        services.AddSingleton<ISupabaseClientFactory, SupabaseClientFactory>();
 
         services.AddHttpClient<IKlaviyo, KlaviyoClient>((sp, opt) =>
         {
