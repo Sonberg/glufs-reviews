@@ -38,7 +38,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          file: ./src/Glufs.Checkout.Api/Dockerfile
+          file: ./src/Glufs.Reviews.Api/Dockerfile
           push: true
           tags: |
             glufs/review-api:latest

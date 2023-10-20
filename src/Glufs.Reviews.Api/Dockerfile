@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["src/Glufs.Review.Api/Glufs.Review.Api.csproj", "src/Glufs.Review.Api/"]
-RUN dotnet restore "src/Glufs.Review.Api/Glufs.Review.Api.csproj"
+COPY ["src/Glufs.Reviews.Api/Glufs.Reviews.Api.csproj", "src/Glufs.Reviews.Api/"]
+RUN dotnet restore "src/Glufs.Reviews.Api/Glufs.Reviews.Api.csproj"
 COPY . .
-WORKDIR "/src/src/Glufs.Review.Api"
-RUN dotnet build "Glufs.Review.Api.csproj" -c Release -o /app/build
+WORKDIR "/src/src/Glufs.Reviews.Api"
+RUN dotnet build "Glufs.Reviews.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Glufs.Review.Api.csproj" -c Release -o /app/publish
+RUN dotnet publish "Glufs.Reviews.Api.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Glufs.Review.Api.dll"]
+ENTRYPOINT ["dotnet", "Glufs.Reviews.Api.dll"]
