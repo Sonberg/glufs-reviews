@@ -39,6 +39,12 @@ public class SendReviewEmailJob : IJob<SendReviewEmailEvent>
     public async Task RunAsync(SendReviewEmailEvent data, CancellationToken cancellationToken = default)
     {
         var order = await _ordersRepository.Get(data.OrderId, cancellationToken);
+
+        if (await _reviewRequestsRepository.IsReviewRequested(order.AdminGraphqlApiId, cancellationToken))
+        {
+            return;
+        }
+
         var orderLines = order.LineItems.Where(x => x.IsFulfilled).ToList();
         var productsTask = orderLines.Select(x => _productsRepository.Get(x.ProductId, cancellationToken));
         var products = await Task.WhenAll(productsTask);

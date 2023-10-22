@@ -31,5 +31,16 @@ public class ReviewRequestsRepository : IReviewRequestsRepository
 
         return response.Models;
     }
+
+    public async Task<bool> IsReviewRequested(string orderId, CancellationToken cancellationToken)
+    {
+        var client = _factory.GetClient();
+        var count = await client
+            .From<ReviewRequest>()
+            .Filter(x => x.OrderId!, Postgrest.Constants.Operator.Equals, orderId)
+            .Count(Postgrest.Constants.CountType.Exact,  cancellationToken);
+
+        return count != 0;
+    }
 }
 
