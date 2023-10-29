@@ -17,11 +17,6 @@
     <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options.DataAnnotations" Version="7.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Options\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Options\" />
+    <PackageReference Include="EasyCronJob.Core" Version="2.1.0" />
   </ItemGroup>
 </Project>

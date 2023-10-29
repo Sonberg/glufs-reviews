@@ -1,5 +1,6 @@
 ﻿using Azure.Identity;
 using Azure.Messaging.ServiceBus;
+using EasyCronJob.Core;
 using Glufs.Reviews.Jobs.Extensions;
 using Glufs.Reviews.Jobs.Options;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,11 @@ public static class Configuration
         });
 
         services.AddTriggersAndJobs();
-
+        services.ApplyResulation<EnqueueReviewRequests>(options =>
+        {
+            options.CronExpression = "0 15 * * *";
+            options.TimeZoneInfo = TimeZoneInfo.Utc;
+            options.CronFormat = Cronos.CronFormat.Standard;
+        });
     }
 }

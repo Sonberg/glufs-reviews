@@ -21,6 +21,18 @@ public class ReviewRequestsRepository : IReviewRequestsRepository
         return response.Model;
     }
 
+    public  async Task<ICollection<ReviewRequest>> Get(CancellationToken cancellationToken)
+    {
+        var client = _factory.GetClient();
+        var response = await client
+            .From<ReviewRequest>()
+            .Filter(x => x.OrderId!, Postgrest.Constants.Operator.NotEqual, null)
+            .Order(x => x.CreatedAt!, Postgrest.Constants.Ordering.Descending)
+            .Get(cancellationToken);
+
+        return response.Models;
+    }
+
     public async Task<ICollection<ReviewRequest>> GetByCustomerId(string customerId, CancellationToken cancellationToken)
     {
         var client = _factory.GetClient();

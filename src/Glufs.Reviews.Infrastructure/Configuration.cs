@@ -1,9 +1,11 @@
 ﻿using System.Net.Http.Headers;
+using Glufs.Reviews.Domain.Events;
 using Glufs.Reviews.Domain.Klaviyo;
 using Glufs.Reviews.Domain.Orders;
 using Glufs.Reviews.Domain.Products;
 using Glufs.Reviews.Domain.ReviewRequests;
 using Glufs.Reviews.Domain.Reviews;
+using Glufs.Reviews.Infrastructure.Events;
 using Glufs.Reviews.Infrastructure.Factories;
 using Glufs.Reviews.Infrastructure.Klaviyo;
 using Glufs.Reviews.Infrastructure.Options;
@@ -68,6 +70,7 @@ public static class Configuration
 
         services.AddScoped<IReviewRequestsRepository, ReviewRequestsRepository>();
         services.AddScoped<IReviewsRepository, ReviewsRepository>();
+        services.AddScoped<IEventPublisher, EventPublisher>();
     }
 
     private static void AddHttpClient<TClient, TImplementation, TOptions>(this IServiceCollection services,

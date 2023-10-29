@@ -20,5 +20,8 @@ public class ReviewRequest : BaseModel
 
     [Column("customer_id")]
     public string? CustomerId { get; set; }
+
+    [Column("created_at")]
+    public DateTimeOffset? CreatedAt { get; set; }
 }
 
